@@ -1,0 +1,10 @@
+{{>/include/header}}
+{{#todo}}
+    <form method="post" action="/todo/add">
+        <input class="form-control" type="hidden" name="id" value="{{id}}">
+        <input class="form-control" type="text" name="name" placeholder="Nom de la liste" value="{{name}}">
+        <textarea  class="form-control"name="description">{{description}}</textarea>
+        <button class="btn btn-success" type="submit">Valider</button>
+    </form>
+{{/todo}}
+{{>/include/footer}}

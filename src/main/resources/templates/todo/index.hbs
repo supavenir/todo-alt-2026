@@ -1,0 +1,29 @@
+{{>/include/header}}
+<h1>Listes</h1>
+    <a class="btn btn-primary" href="/todo/add">Ajouter une liste</a>
+    <ul class="list-group">
+        {{#todos}}
+            <li class="list-group-item" style="display:flex;justify-content: space-between">{{name}}
+                <form action="/todo/delete/{{id}}" method="post">
+                    <button class="btn btn-sm btn-outline-danger" type="submit">X</button>
+                </form>
+            </li>
+        {{/todos}}
+        <hr/>
+        {{^todos}}
+            <div class="alert alert-info" role="alert">
+                Aucune TodoListe, vous pouvez en ajouter une en cliquant sur <a class="btn btn-primary" href="/todo/add">Ajouter une liste</a>
+            </div>
+        {{/todos}}
+        {{#message}}
+            <div class="alert alert-{{type.label}}" role="alert">
+                {{#title}}
+                    <h4 class="alert-heading">{{.}}</h4>
+                {{/title}}
+                <p>
+                    {{content}}
+                </p>
+            </div>
+        {{/message}}
+    </ul>
+{{>/include/footer}}
