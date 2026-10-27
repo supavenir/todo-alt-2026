@@ -1,12 +1,24 @@
 {{>/include/header}}
 <h1>Listes</h1>
-    <a class="btn btn-primary" href="/todo/add">Ajouter une liste</a>
+    <div class="flex-row d-flex align-items-center">
+        <a class="btn btn-primary m-2" href="/todo/add">Ajouter une liste</a>
+        <form method="post" action="/todo/search" class="m-0 p-0">
+            <input type="search" name="text" class="form-control m-0">
+        </form>
+    </div>
     <ul class="list-group">
         {{#todos}}
             <li class="list-group-item" style="display:flex;justify-content: space-between">{{name}}
-                <form action="/todo/delete/{{id}}" method="post">
-                    <button class="btn btn-sm btn-outline-danger" type="submit">X</button>
-                </form>
+                <div class="flex-row d-flex gap-1">
+                    <a href="/todo/update/{{id}}" class="d-block btn btn-sm btn-outline-primary rounded-circle">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                    <form action="/todo/delete/{{id}}" method="post">
+                        <button class="btn btn-sm btn-outline-danger rounded-circle" type="submit">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </form>
+                </div>
             </li>
         {{/todos}}
         <hr/>
