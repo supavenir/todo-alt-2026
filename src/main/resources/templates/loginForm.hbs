@@ -1,0 +1,7 @@
+<form method="post" action="./login">
+    <input type="text" name="username" placeholder="E-mail address or username">
+    <input type="password" name="password" placeholder="Password">
+    <!-- Token CSRF (voir section CSRF) -->
+    <input type="hidden" name="{{_csrf.parameterName}}" value="{{_csrf.token}}"/>
+    <button type="submit">Login</button>
+</form>
